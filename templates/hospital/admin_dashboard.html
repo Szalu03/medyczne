@@ -1,0 +1,11 @@
+<!-- hospital/templates/hospital/admin_dashboard.html -->
+{% extends "hospital/base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+<p>Welcome, {{ request.user.username }}! Here you can manage hospital resources.</p>
+<nav>
+    <a href="{% url 'room_list' %}">Rooms</a> |
+    <a href="{% url 'reservation_list' %}">Reservations</a> |
+    <a href="{% url 'create_reservation' %}">New Reservation</a>
+</nav>
+{% endblock %}

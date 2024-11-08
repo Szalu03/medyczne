@@ -1,0 +1,28 @@
+<!-- hospital/templates/hospital/user_dashboard.html -->
+{% extends "hospital/base.html" %}
+{% block content %}
+<h2>User Dashboard</h2>
+<p>Welcome, {{ request.user.username }}! Here are your current reservations and available rooms.</p>
+
+<h3>Your Reservations</h3>
+<ul>
+    {% for reservation in reservations %}
+        <li>{{ reservation.room.name }} on {{ reservation.date }} at {{ reservation.time }} - {{ reservation.duration }}
+            (<a href="{% url 'hospital:reservation_detail' reservation.pk %}">Details</a>)
+        </li>
+    {% empty %}
+        <li>You have no reservations.</li>
+    {% endfor %}
+</ul>
+
+<h3>Available Rooms</h3>
+<ul>
+    {% for room in rooms %}
+        <li>{{ room.name }} - {{ room.get_room_type_display }}</li>
+    {% empty %}
+        <li>No rooms available at the moment.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'hospital:make_reservation' %}">Make a New Reservation</a>
+{% endblock %}

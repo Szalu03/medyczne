@@ -1,0 +1,15 @@
+{% extends "hospital/base.html" %}
+
+{% block content %}
+
+
+<h2>Reservation List</h2>
+<ul>
+    {% for reservation in reservations %}
+        <li>
+            {{ reservation.room }} - {{ reservation.date }} at {{ reservation.time }}
+            (<a href="{% url 'reservation_detail' reservation.pk %}">Details</a>)
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

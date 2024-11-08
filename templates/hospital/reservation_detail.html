@@ -1,0 +1,14 @@
+{% extends "hospital/base.html" %}
+
+{% block content %}
+
+
+<h2>Reservation Details</h2>
+<p>Room: {{ reservation.room }}</p>
+<p>Staff: {{ reservation.staff }}</p>
+<p>Date: {{ reservation.date }}</p>
+<p>Time: {{ reservation.time }}</p>
+<p>Duration: {{ reservation.duration }}</p>
+
+<a href="{% url 'delete_reservation' reservation.pk %}">Delete Reservation</a>
+{% endblock %}

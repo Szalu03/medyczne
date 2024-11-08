@@ -1,0 +1,12 @@
+{% extends "hospital/base.html" %}
+
+{% block content %}
+
+
+<h1>Hospital Management System</h1>
+<nav>
+    <a href="{% url 'room_list' %}">Rooms</a> |
+    <a href="{% url 'reservation_list' %}">Reservations</a> |
+    <a href="{% url 'create_reservation' %}">New Reservation</a>
+</nav>
+{% endblock %}
